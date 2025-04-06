@@ -2,8 +2,6 @@ name: build
 on:
   push:
   pull_request:
-  schedule:
-    - cron: "0 0 * * *"
 jobs:
   build-test-lint-linux:
     name: Linux - FFmpeg ${{ matrix.ffmpeg_version }} - build, test and lint
