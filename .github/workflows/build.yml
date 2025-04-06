@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           apt update
-          apt install -y --no-install-recommends clang curl pkg-config
+          apt install -y --no-install-recommends clang curl pkg-config libavutil-dev
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -118,7 +118,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y --no-install-recommends clang curl pkg-config xz-utils libxv-dev
+          sudo apt install -y --no-install-recommends clang curl pkg-config xz-utils libxv-dev libavutil-dev
           curl -L https://sourceforge.net/projects/avbuild/files/linux/ffmpeg-7.1-linux-clang-default.tar.xz/download -o ffmpeg.tar.xz
           tar -xf ffmpeg.tar.xz
       - name: Set up Rust
