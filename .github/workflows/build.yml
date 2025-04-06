@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           apt update
-          apt install -y --no-install-recommends clang curl pkg-config libavutil-dev
+          apt install -y --no-install-recommends clang curl pkg-config libavutil-dev ca-certificates
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
         with:
