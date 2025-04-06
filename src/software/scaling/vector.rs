@@ -124,7 +124,7 @@ impl Vector<'_> {
 }
 
 #[cfg(not(feature = "ffmpeg_5_0"))]
-impl<'a> Clone for Vector<'a> {
+impl Clone for Vector<'_> {
     fn clone(&self) -> Self {
         unsafe {
             Vector {

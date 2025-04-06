@@ -18,7 +18,7 @@ pub struct Picture<'a> {
     _marker: PhantomData<&'a ()>,
 }
 
-impl<'a> Picture<'a> {
+impl Picture<'_> {
     pub unsafe fn wrap(
         ptr: *mut AVPicture,
         format: format::Pixel,
@@ -46,7 +46,7 @@ impl<'a> Picture<'a> {
     }
 }
 
-impl<'a> Picture<'a> {
+impl Picture<'_> {
     pub fn size(format: format::Pixel, width: u32, height: u32) -> Result<usize, Error> {
         unsafe {
             match avpicture_get_size(format.into(), width as c_int, height as c_int) {
@@ -187,7 +187,7 @@ impl<'a> Picture<'a> {
     }
 }
 
-impl<'a> Clone for Picture<'a> {
+impl Clone for Picture<'_> {
     fn clone(&self) -> Self {
         let mut pic = Picture::new(self.format, self.width, self.height).unwrap();
         pic.clone_from(self);
@@ -208,7 +208,7 @@ impl<'a> Clone for Picture<'a> {
     }
 }
 
-impl<'a> Drop for Picture<'a> {
+impl Drop for Picture<'_> {
     fn drop(&mut self) {
         if self._own {
             unsafe {

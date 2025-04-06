@@ -5,7 +5,7 @@ use Picture;
 use {decoder, frame, Error};
 
 #[cfg(not(feature = "ffmpeg_5_0"))]
-impl<'a> Picture<'a> {
+impl Picture<'_> {
     #[inline]
     pub fn scaler(&self, width: u32, height: u32, flags: Flags) -> Result<Context, Error> {
         Context::get(
